@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Leeza Cook – Violinist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #f7f5f3;
+      --bg-alt: #ffffff;
+      --primary: #7a4b8a;
+      --primary-dark: #5e376b;
+      --accent: #c29aa8;
+      --text: #222222;
+      --muted: #666666;
+      --border: #e1ddd9;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.08);
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   sans-serif;
+      --font-serif: "Georgia", "Times New Roman", serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top left, #f0e7ff 0, #f7f5f3 40%, #f7f5f3 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page-wrapper {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      font-size: 14px;
+    }
+
+    .brand-text h1 {
+      font-size: 22px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .brand-text p {
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    nav a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--primary-dark);
+      background: rgba(122, 75, 138, 0.06);
+      outline: none;
+    }
+
+    .hero {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(260px, 1.3fr);
+      gap: 28px;
+      margin-bottom: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .hero-copy h2 {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .hero-copy h3 {
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .hero-copy p {
+      font-size: 15px;
+      max-width: 32rem;
+      color: #333333;
+      margin-bottom: 18px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(122, 75, 138, 0.06);
+      color: var(--primary-dark);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.18s ease, color 0.18s ease, transform 0.12s ease,
+                  box-shadow 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #ffffff;
+      box-shadow: 0 14px 30px rgba(61, 36, 77, 0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 36px rgba(61, 36, 77, 0.34);
+      text-decoration: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--primary-dark);
+      border: 1px solid rgba(122, 75, 138, 0.18);
+    }
+
+    .btn-outline:hover {
+      background: rgba(122, 75, 138, 0.05);
+      text-decoration: none;
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-side {
+      background: radial-gradient(circle at top right, #fdefff 0, #ffffff 55%);
+      border-radius: var(--radius-md);
+      padding: 18px 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-side h4 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .hero-side p {
+      font-size: 13px;
+      color: #444444;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      background: rgba(255, 255, 255, 0.8);
+      color: #555555;
+    }
+
+    .availability {
+      font-size: 13px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: rgba(122, 75, 138, 0.04);
+      border: 1px dashed rgba(122, 75, 138, 0.25);
+      color: #4a2a57;
+    }
+
+    .availability strong {
+      font-weight: 600;
+    }
+
+    .hero-meta {
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 2px;
+    }
+
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #333333;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-md);
+      padding: 16px 16px 14px;
+      border: 1px solid var(--border);
+    }
+
+    .card h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #444444;
+    }
+
+    .card small {
+      display: block;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(260px, 1.1fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .about-text h3 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .about-text p {
+      font-size: 14px;
+      color: #3a3a3a;
+      margin-bottom: 10px;
+    }
+
+    .about-highlight {
+      font-size: 13px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      background: rgba(122, 75, 138, 0.04);
+      border-left: 3px solid var(--primary);
+      color: #4b2f5d;
+      margin-top: 8px;
+    }
+
+    /* New: image styling for Leeza */
+    .about-figure {
+      margin-bottom: 12px;
+    }
+
+    .about-figure img {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .about-figure figcaption {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .duo-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      font-size: 13px;
+    }
+
+    .duo-card h4 {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .duo-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    /* New: duo image styling */
+    .duo-image {
+      margin-bottom: 10px;
+    }
+
+    .duo-image img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .tracks {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .track {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 12px;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-alt);
+      border-radius: 999px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+    }
+
+    .track-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .track-meta {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .track audio {
+      width: 160px;
+      max-width: 100%;
+      height: 28px;
+    }
+
+    .enquiry-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1.2fr);
+      gap: 24px;
+      align-items: start;
+    }
+
+    form {
+      display: grid;
+      gap: 10px;
+    }
+
+    label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #333333;
+      margin-bottom: 2px;
+      display: block;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      font-family: inherit;
+      font-size: 14px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #ffffff;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: 2px solid rgba(122, 75, 138, 0.25);
+      border-color: rgba(122, 75, 138, 0.35);
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .field-group {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .calendar-card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      border: 1px dashed var(--border);
+      font-size: 13px;
+      color: #444444;
+    }
+
+    .calendar-coming {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        align-items: flex-start;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 22px 18px;
+      }
+
+      .about,
+      .enquiry-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .track {
+        border-radius: 12px;
+        align-items: flex-start;
+      }
+
+      .hero-meta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper" id="top">
+
+    <header>
+      <div class="brand">
+        <div class="brand-mark">LC</div>
+        <div class="brand-text">
+          <h1>Leeza Cook</h1>
+          <p>Violinist</p>
+        </div>
+      </div>
+
+      <nav aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#listen">Listen</a>
+        <a href="#enquiries">Enquiries</a>
+        <a href="#availability">Availability</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h3>Live violin for weddings & events</h3>
+        <h2 id="hero-title">
+          Warm, modern violin music for ceremonies, receptions, and special occasions.
+        </h2>
+        <p>
+          Live modern violin music crafted to bring warmth, emotion, and atmosphere to your wedding day and special events.
+          Leeza offers acoustic sets with discreet amplification for larger spaces.
+        </p>
+
+        <div class="hero-tags">
+          <span class="tag">Ceremony & aisle music</span>
+          <span class="tag">Cocktail hour & reception</span>
+          <span class="tag">Custom song requests</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#enquiry-form">Check your date</a>
+          <a class="btn btn-outline" href="#listen">Preview songs</a>
+        </div>
+        <div class="hero-note">
+          Typically booking 6–18 months in advance. For short‑notice dates, please enquire.
+        </div>
+      </div>
+
+      <aside class="hero-side">
+        <div>
+          <h4>Based in</h4>
+          <p>
+            Suffolk – performing across Suffolk and surrounding counties.
+          </p>
+          <div class="badge-row">
+            <span class="pill">Ceremonies</span>
+            <span class="pill">Drinks receptions</span>
+            <span class="pill">Private events</span>
+          </div>
+        </div>
+
+        <div class="availability">
+          <strong>Now accepting bookings for next season.</strong><br />
+          Share your date, venue and vision for tailored recommendations.
+        </div>
+
+        <div class="hero-meta">
+          <span>Acoustic violin with optional amplification.</span>
+       </div>
+       
+       <div class="hero-meta">        
+          <span>Romantic, modern, and contemporary repertoire.</span>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="services">
+      <div class="section-header">
+        <h2 class="section-title">Services</h2>
+        <p class="section-subtitle">
+          Thoughtfully curated live violin music for each part of your day.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <h3>Ceremony Music</h3>
+          <p>
+            Romantic, modern, or contemporary selections to accompany your walk down the aisle, signing of the register, and
+            exit as newlyweds.
+          </p>
+          <small>Tailored entrance, signing, and recessional pieces.</small>
+        </article>
+
+        <article class="card">
+          <h3>Cocktail Hour & Reception</h3>
+          <p>
+            Soft, elegant background music to elevate your drinks reception, wedding breakfast or evening gathering without
+            overpowering conversation.
+          </p>
+          <small>Curated playlists to suit your venue and guests.</small>
+        </article>
+
+        <article class="card">
+          <h3>Custom Song Requests</h3>
+          <p>
+            Special songs arranged just for your day – from timeless classics to modern favourites – creating moments that feel
+            completely personal.
+          </p>
+          <small>Advance notice recommended for new arrangements.</small>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-header">
+        <h2 class="section-title">About</h2>
+        <p class="section-subtitle">Professional, personable, and focused on your day.</p>
+      </div>
+
+      <div class="about">
+        <div class="about-text">
+          <!-- New: photo of Leeza -->
+          <figure class="about-figure">
+            <img src="001.jpg" alt="Leeza Cook performing on violin at an event" />
+            <figcaption>Leeza Cook – modern wedding and event violinist.</figcaption>
+          </figure>
+
+          <h3>About Leeza</h3>
+          <p>
+            Leeza Cook is a professionally trained violinist who has been playing since the age of 10, tutored at Burnt Mill
+            Music School and performing with ensembles from an early age, joined Harlow Youth Orchestra at the age of 12
+            where the orchestra was conducted by a member of the renowned Alberni String Quartet.
+          </p>
+          <p>
+            With years of experience across weddings, concerts, and private events, Leeza blends strong technical grounding
+            with a warm, expressive tone to create an atmosphere that is elegant, heartfelt, and deeply personal.
+          </p>
+          <div class="about-highlight">
+            From an intimate ceremony to a relaxed garden reception, the focus is always on music that supports the mood,
+            feels natural within your setting, and reflects your event.
+          </div>
+        </div>
+
+        <aside class="duo-card">
+          <!-- New: duo image -->
+          <div class="duo-image">
+            <img src="002.jpeg" alt="Whistler's Mother duo – violinist with accompanist" />
+          </div>
+
+          <h4>Duo option</h4>
+          <strong>Whistler’s Mother</strong>
+          <p>
+            For larger receptions or events, Leeza also performs as part of <em>Whistler's Mother</em>, a modern violin +
+            accompanist duo offering an expanded, richer sound.
+          </p>
+          <p>
+            Ideal for wedding breakfasts, evening receptions, and bespoke events where you would like a fuller musical
+            backdrop while still keeping things refined and conversational.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="listen">
+      <div class="section-header">
+        <h2 class="section-title">Listen</h2>
+        <p class="section-subtitle">A few sample recordings to give a sense of style.</p>
+      </div>
+
+      <div class="tracks">
+        <div class="track">
+          <div>
+            <div class="track-title">Ain't No Love</div>
+            <div class="track-meta">Whistler's Mother Duo track – modern & soulful.</div>
+          </div>
+          <audio controls>
+            <source src="Ain't No Love.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+
+        <div class="track">
+          <div>
+            <div class="track-title">Have You Ever Seen The Rain</div>
+            <div class="track-meta">Whistler's Mother Duo track - Gentle, melodic version suited to Events.</div>
+          </div>
+          <audio controls>
+            <source src="Have You Ever Seen The Rain.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+
+        <div class="track">
+          <div>
+            <div class="track-title">Tamlin</div>
+            <div class="track-meta">Atmospheric traditional‑inspired piece.</div>
+          </div>
+          <audio controls>
+            <source src="Tamlin.mp3" type="audio/mpeg" />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="enquiries">
+      <div class="section-header">
+        <h2 class="section-title">Enquiries</h2>
+        <p class="section-subtitle">Share a few details for a tailored quote.</p>
+      </div>
+
+      <div class="enquiry-layout">
+        <div>
+          <form id="enquiry-form" action="mailto:whistlersmother1@hotmail.com" method="post" enctype="text/plain">
+            <div class="field-group">
+              <div>
+                <label for="name">Your name</label>
+                <input type="text" id="name" name="Name" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="Email" required />
+              </div>
+            </div>
+
+            <div class="field-group">
+              <div>
+                <label for="date">Event date</label>
+                <input type="date" id="date" name="Event date" />
+              </div>
+              <div>
+                <label for="venue">Venue / Location</label>
+                <input type="text" id="venue" name="Venue" />
+              </div>
+            </div>
+
+            <div>
+              <label for="details">Tell me about your day</label>
+              <textarea
+                id="details"
+                name="Details"
+                placeholder="Ceremony time, type of event, approximate timings, and any songs you already have in mind."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              Send enquiry
+            </button>
+          </form>
+
+          <p style="font-size: 14px; color: #777777; margin-top: 8px;">
+            Prefer email? Contact directly at
+            <a href="mailto:whistlersmother1@hotmail.com">whistlersmother1@hotmail.com</a>.
+          </p>
+        </div>
+
+        <aside class="calendar-card" id="availability">
+          <strong>Availability calendar</strong>
+          <p>
+            Please enquire to confirm date availability. Bookings vary throughout the year and some popular dates hold
+            multiple enquiries.
+          </p>
+          <p class="calendar-coming">
+            Calendar view coming soon – in the meantime, send your date and venue for a quick check.
+          </p>
+          <a class="btn btn-outline" href="#enquiry-form" style="margin-top: 10px;">
+            Check my date
+          </a>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      &copy; <span id="year"></span> Leeza Cook. All rights reserved.
+      &middot;
+      <a href="#top">Back to top</a>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
