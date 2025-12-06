@@ -5,6 +5,7 @@
   <title>Leeza Cook – Violinist</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
   <style>
     :root {
       --bg: #f7f5f3;
@@ -789,7 +790,8 @@
       </nav>
     </header>
 
-    <section class="hero" aria-labelledby="hero-title">
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <h3>Live violin for weddings & events</h3>
         <h2 id="hero-title">
@@ -955,38 +957,49 @@
         <p class="section-subtitle">A few sample recordings to give a sense of style.</p>
       </div>
 
+      <!-- Audio Controller will be added here by JavaScript -->
+
       <div class="tracks">
-        <div class="track">
+        <div class="track" role="button" tabindex="0" aria-label="Play Ain't No Love" data-track-index="0">
           <div>
-            <div class="track-title"><i class="fas fa-music "></i> Ain't No Love</div>
-            <div class="track-meta">Whistler's Mother – modern & soulful.</div>
+            <div class="track-title"><i class="fas fa-music"></i> Ain't No Love</div>
+            <div class="track-meta">Whistler's Mother Duo track – modern & soulful.</div>
           </div>
-          <audio controls>
+          <audio controls preload="metadata">
             <source src="Ain't No Love.mp3" type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
+          <button class="track-play-overlay" aria-label="Play Ain't No Love">
+            <i class="fas fa-play"></i>
+          </button>
         </div>
 
-        <div class="track">
+        <div class="track" role="button" tabindex="0" aria-label="Play Have You Ever Seen The Rain" data-track-index="1">
           <div>
-            <div class="track-title"><i class="fas fa-music "></i> Have You Ever Seen The Rain</div>
-            <div class="track-meta">Whistler's Mother - Gentle, melodic version suited to Events.</div>
+            <div class="track-title"><i class="fas fa-music"></i> Have You Ever Seen The Rain</div>
+            <div class="track-meta">Whistler's Mother Duo track - Gentle, melodic version suited to Events.</div>
           </div>
-          <audio controls>
+          <audio controls preload="metadata">
             <source src="Have You Ever Seen The Rain.mp3" type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
+          <button class="track-play-overlay" aria-label="Play Have You Ever Seen The Rain">
+            <i class="fas fa-play"></i>
+          </button>
         </div>
 
-        <div class="track">
+        <div class="track" role="button" tabindex="0" aria-label="Play Tamlin" data-track-index="2">
           <div>
-            <div class="track-title"><i class="fas fa-music "></i> Tamlin</div>
+            <div class="track-title"><i class="fas fa-music"></i> Tamlin</div>
             <div class="track-meta">Atmospheric traditional‑inspired piece.</div>
           </div>
-          <audio controls>
+          <audio controls preload="metadata">
             <source src="Tamlin.mp3" type="audio/mpeg" />
             Your browser does not support the audio element.
           </audio>
+          <button class="track-play-overlay" aria-label="Play Tamlin">
+            <i class="fas fa-play"></i>
+          </button>
         </div>
       </div>
     </section>
@@ -1081,6 +1094,7 @@
 
       </div>
     </section>
+    </main>
 
     <footer>
       <div class="social-links">
@@ -1102,62 +1116,13 @@
     <i class="fas fa-arrow-up"></i>
   </div>
 
+  <!-- Link to enhanced JavaScript file -->
+  <script src="main.js"></script>
+  
+  <!-- Keep the year update script -->
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Scroll to top button
-    const scrollToTopButton = document.getElementById('scrollToTop');
-    
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        scrollToTopButton.classList.add('visible');
-      } else {
-        scrollToTopButton.classList.remove('visible');
-      }
-    });
-
-    scrollToTopButton.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-
-    // Form validation
-    const form = document.getElementById('enquiry-form');
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        
-        if (!name || !email) {
-          e.preventDefault();
-          alert('Please fill in all required fields.');
-        }
-      });
-    }
-
-    // Add animation delays to sections
-    document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('.section');
-      sections.forEach((section, index) => {
-        section.style.animationDelay = `${index * 0.2}s`;
-      });
-    });
   </script>
 </body>
 </html>
+
