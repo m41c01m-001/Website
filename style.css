@@ -1,502 +1,56 @@
-/*
- * Enhanced Styles for Leeza Cook - Violinist Website
- * Audio Player Enhancements
- */
-
-/* Audio Player Controller */
-.audio-controller {
-  background: var(--bg-alt);
-  border-radius: var(--radius-lg);
-  padding: 20px;
-  margin: 30px 0;
-  box-shadow: var(--shadow-soft);
-  border: 1px solid var(--border);
-  animation: fadeIn 0.8s ease-out;
-}
-
-.controller-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid var(--border);
-}
-
-.controller-header h3 {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.controller-header h3 i {
-  color: var(--accent);
-}
-
-.controller-status {
-  font-size: 14px;
-  color: var(--muted);
-  font-style: italic;
-}
-
-.controller-controls {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-.btn-control {
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 16px;
-}
-
-.btn-control:hover {
-  background: var(--primary-dark);
-  transform: scale(1.05);
-}
-
-.btn-control:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-.btn-control:active {
-  transform: scale(0.95);
-}
-
-.btn-play-pause {
-  width: 50px;
-  height: 50px;
-  font-size: 18px;
-}
-
-.volume-control {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-left: auto;
-}
-
-.btn-volume {
-  background: none;
-  border: none;
-  color: var(--muted);
-  cursor: pointer;
-  font-size: 18px;
-  padding: 5px;
-  transition: color 0.2s ease;
-}
-
-.btn-volume:hover {
-  color: var(--primary);
-}
-
-#volume-slider {
-  width: 80px;
-  height: 6px;
-  -webkit-appearance: none;
-  appearance: none;
-  background: var(--border);
-  border-radius: 3px;
-  outline: none;
-}
-
-#volume-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--primary);
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-#volume-slider::-webkit-slider-thumb:hover {
-  background: var(--primary-dark);
-  transform: scale(1.2);
-}
-
-#volume-slider::-moz-range-thumb {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: var(--primary);
-  cursor: pointer;
-  border: none;
-}
-
-.controller-progress {
-  margin-top: 10px;
-}
-
-.progress-bar {
-  height: 6px;
-  background: var(--border);
-  border-radius: 3px;
-  overflow: hidden;
-  margin-bottom: 8px;
-}
-
-.progress-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  width: 0%;
-  transition: width 0.3s ease;
-  border-radius: 3px;
-}
-
-.time-display {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  color: var(--muted);
-}
-
-/* Enhanced Track Items */
-.track {
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.track:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-hover);
-}
-
-.track.playing {
-  background: linear-gradient(135deg, rgba(122, 75, 138, 0.1), rgba(194, 154, 168, 0.1));
-  border-color: var(--primary);
-}
-
-.track.playing .track-title {
-  color: var(--primary);
-}
-
-.track-play-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border: none;
-  border-radius: 999px;
-  cursor: pointer;
-  z-index: 1;
-}
-
-.track:hover .track-play-overlay {
-  opacity: 1;
-}
-
-.track-play-overlay i {
-  font-size: 24px;
-  color: var(--primary);
-  background: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: var(--shadow-soft);
-}
-
-.track:focus {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-/* Form Validation Styles */
-.form-error {
-  background: rgba(220, 53, 69, 0.1);
-  border-left: 4px solid #dc3545;
-  padding: 12px 16px;
-  margin: 15px 0;
-  border-radius: var(--radius-md);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  animation: fadeIn 0.3s ease;
-}
-
-.form-error i {
-  color: #dc3545;
-}
-
-input.error,
-textarea.error {
-  border-color: #dc3545 !important;
-}
-
-.field-error {
-  color: #dc3545;
-  font-size: 12px;
-  margin-top: 5px;
-  display: block;
-  animation: fadeIn 0.3s ease;
-}
-
-/* Security: Honeypot field - visually hidden but accessible to bots */
-.honey-pot-field {
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 0;
-  width: 0;
-  z-index: -1;
-  overflow: hidden;
-}
-
-/* Scroll to Top Button */
-.scroll-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 50px;
-  height: 50px;
-  background: var(--primary);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 1000;
-  box-shadow: 0 4px 15px rgba(122, 75, 138, 0.3);
-}
-
-.scroll-to-top.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-.scroll-to-top:hover {
-  background: var(--primary-dark);
-  transform: translateY(-3px);
-}
-
-.scroll-to-top:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-/* Accessibility Improvements */
-button:focus,
-input:focus,
-textarea:focus,
-select:focus,
-a:focus {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-/* Skip to Content Link */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: var(--primary);
-  color: white;
-  padding: 10px 15px;
-  text-decoration: none;
-  z-index: 1001;
-  border-radius: var(--radius-md);
-}
-
-.skip-link:focus {
-  top: 10px;
-}
-
-/* Print Styles */
-@media print {
-  .audio-controller,
-  .scroll-to-top,
-  .track-play-overlay {
-    display: none !important;
-  }
-  
-  .track {
-    break-inside: avoid;
-  }
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-  .audio-controller {
-    background: #1a1a1a;
-    border-color: #333;
-  }
-  
-  .track-play-overlay {
-    background: rgba(0, 0, 0, 0.9);
-  }
-  
-  .track-play-overlay i {
-    background: #222;
-    color: var(--accent);
-  }
-}
-
-/* Responsive Audio Player */
-@media (max-width: 768px) {
-  .audio-controller {
-    padding: 15px;
-    margin: 20px 0;
-  }
-  
-  .controller-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-  }
-  
-  .controller-controls {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .volume-control {
-    margin-left: 0;
-    margin-top: 10px;
-    width: 100%;
-    justify-content: center;
-  }
-  
-  #volume-slider {
-    width: 100px;
-  }
-  
-  .track {
-    flex-direction: column;
-    gap: 15px;
-    padding: 15px;
-  }
-  
-  .track audio {
-    width: 100%;
-  }
-}
-
-/* Animation Keyframes */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
-}
-
-/* Now Playing Animation */
-.track.playing .track-title {
-  animation: pulse 2s infinite;
-}
-
-.track.playing .track-title i {
-  animation: spin 4s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Focus styles for better accessibility */
-:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 2px;
-}
-
-/* Remove default outline for mouse users */
-:focus:not(:focus-visible) {
-  outline: none;
-}
-
-/* Loading States */
-.track.loading audio {
-  opacity: 0.5;
-}
-
-.track.loading .track-play-overlay i {
-  animation: spin 1s linear infinite;
-}
-
-/* Keyboard Navigation Indicator */
-.track:focus-visible {
-  box-shadow: 0 0 0 3px rgba(122, 75, 138, 0.3);
-}
-
-body {
-  background-image: url('Leeza-008.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  background-size: 80%; /* adjust size as needed */
-  opacity: 1; /* keep body opaque */
-}
-
-body::before {
-  content: "";
+.background-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh; /* Use vh instead of 100% */
   background-image: url('Leeza-008.png');
-  background-repeat: no-repeat;
-  background-position: center center;
   background-size: cover;
-  opacity: 0.2; /* adjust faintness (0.05-0.15 works well) */
+  background-position: center;
+  opacity: 0.25;
   z-index: -1;
-  pointer-events: none;
+  pointer-events: none; /* Prevent interaction */
 }
 
-.brand-mark {
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 15px rgba(122, 75, 138, 0.2);
-  transition: transform 0.3s ease;
-  overflow: hidden;
-}
-
-.brand-mark img {
+.background-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* preserves logo proportions */
-  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 0;
 }
 
-.brand-mark:hover {
-  transform: scale(1.05);
+/* Remove the z-index on all children as it might cause stacking issues */
+/* body > *:not(.background-container) {
+  position: relative;
+  z-index: 1;
+} */
+
+/* Fix the large empty space */
+.about-hero {
+    padding-top: 80px; /* Further reduced to account for navbar */
+    padding-bottom: 4rem;
+    min-height: auto; /* Remove min-height constraint */
+    display: flex;
+    align-items: center;
 }
 
+.about-hero .container {
+    width: 100%;
+    margin-top: 0; /* Ensure no margin */
+}
+
+/* Ensure navbar is properly positioned */
+.navbar {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 80px;
+}
