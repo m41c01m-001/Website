@@ -1079,19 +1079,27 @@
         </div>
     </section>
 
-<section id="booking">
-  <h2>Check Availability & Book</h2>
+<section id="booking-calendar" class="section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-subtitle">Availability</span>
+            <h2>Check Availability & Book</h2>
+        </div>
 
-  <!-- Google Calendar Appointment Scheduling begin -->
-  <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3vnD4s00fkdYwMQPwWCUYW5WtLarcWc5JghxBsxgD84x_Il1HkwuLleLLu7ZoJGnc7WUyNbm36?gv=true" 
-  style="border: 0; overflow: hidden;" 
-  scrolling="no"
-  width="100%" 
-  height="600" 
-  frameborder="0"></iframe>
-  <!-- Google Calendar Appointment Scheduling end -->
+        <div class="calendar-container">
+            <div class="responsive-iframe-container">
+                <iframe 
+                    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3vnD4s00fkdYwMQPwWCUYW5WtLarcWc5JghxBsxgD84x_Il1HkwuLleLLu7ZoJGnc7WUyNbm36?gv=true" 
+                    style="border: 0" 
+                    class="booking-iframe">
+                </iframe>
+            </div>
+            <p class="booking-note">
+                Don't see a slot that fits? <a href="mailto:leezacookviolinist@gmail.com">Send me an email</a>.
+            </p>
+        </div>
+    </div>
 </section>
-
 <!-- Footer -->
 <footer class="footer">
     <div class="container">
